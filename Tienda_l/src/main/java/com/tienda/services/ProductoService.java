@@ -19,17 +19,12 @@ public interface ProductoService {
     //Se elimina el registro que tenga el idProducto pasado por parametro
     public void delete(Producto producto);
 
-    //Devuelve la lista de productos filtrados...
-    public List<Producto> consultaQuery(
-            double precioInf,
-            double precioSup);
+    //Devuelve las lista de productos filtrados
+    public List<Producto> consultaQuery(double precioInf, double precioSup);
+
+    //Devuelve las lista de productos con JPQL
+    public List<Producto> consultaJPQL(double precioInf, double precioSup);
     
-    //Devuelve la lista de productos filtrados con JPQL...
-     public List<Producto> consultaJPQL(
-            double precioInf,
-            double precioSup);
-     
-     public List<Producto> consultaSQL(
-            double precioInf,
-            double precioSup);
+        //Devuelve las lista de productos con SQL
+    public List<Producto> consultaSQL(double precioInf, double precioSup);
 }

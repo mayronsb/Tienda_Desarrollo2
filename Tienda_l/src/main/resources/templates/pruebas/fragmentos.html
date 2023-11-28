@@ -6,7 +6,7 @@
         <title>TechShop</title>
     </head>
     <body>
-        <!-- 1 Sección para crear los tabs -->
+        <!-- 1 Sección para crear los tabs-->
         <section th:fragment="categoriasTabs" id="categorias">
             <div class="row py-4">
                 <ul class="nav nav-tabs">
@@ -25,7 +25,7 @@
             </div>
         </section>
 
-        <!-- 2 Sección principal para mostrar la informaccion de los productos seleccionados -->
+        <!<!-- muestra la informacion de los productos seleccionados -->
         <section th:fragment="listadoProductos" id="productos">
             <div class="container">
                 <div class="row">
@@ -43,25 +43,25 @@
                                         <p class="card-title">[[${p.descripcion}]]</p>
                                     </div>
                                     <a th:href="@{/producto/eliminar/}+${p.idProducto}"
-                                                   class="btn btn-danger">
-                                                    <i class="fas fa-trash"></i> </a>
+                                       class="btn btn-danger">
+                                        <i class="fas fa-trash"></i></a>
                                     <div class="card-body">
                                         <p class="card-text">[[${p.detalle}]]</p>
                                     </div>
                                 </div>
                             </div>
-                           
+
                         </div>
                         <div class="text-center p-2" th:if="${productos == null or productos.empty}">
                             <span>[[#{lista.vacia}]]</span>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </section>
-        
-        <!-- 3 Sección para crear filtros -->
-        <section th:fragment="filtros" id="bg-light">
+
+        <!-- 3 Sección para crear los filtros-->
+        <section th:fragment="filtros" class="bg-light">
             <div class="row py-4">
                 <div class="col-md-3">
                     <form method="post"
@@ -69,109 +69,91 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="fechaInf">[#{pruebas.precio.inferior}]
-                                        
-                                    </label>
-                                    <input type="number"
+                                    <label for="fechaInf"> [[#{pruebas.precio.inferior}]]</label>
+                                    <input type="number" 
                                            class="form-control" 
-                                           th:value="${precioInf}"
-                                           th:name="precioInf"
+                                           th:vaue="${precioInf}" 
+                                           th:name="precioInf" 
                                            required="true"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="fechaSup">[#{pruebas.precio.superior}]                                                                           
-                                    </label>
-                                    <input type="number"
+                                    <label for="fechaSup"> [[#{pruebas.precio.superior}]]</label>
+                                    <input type="number" 
                                            class="form-control" 
-                                           th:value="${precioInf}"
-                                           th:name="precioSup"
+                                           th:vaue="${precioSup}" 
+                                           th:name="precioSup" 
                                            required="true"/>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-check"></i>[[#{pruebas.ampliadas}]]
-                                
-                            </button>
-                        </div>
-                        
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-check"></i> [[#{pruebas.ampliadas}]]
+                                </button>
+                            </div>
+                        </div>  
                     </form>
                 </div>
-            </div>
-            
-            <div class="col-md-3">
+                <div class="col-md-3">
                     <form method="post"
                           th:action="@{/pruebas/query2}">
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="fechaInf">[#{pruebas.precio.inferior}]
-                                        
-                                    </label>
-                                    <input type="number"
+                                    <label for="fechaInf"> [[#{pruebas.precio.inferior}]]</label>
+                                    <input type="number" 
                                            class="form-control" 
-                                           th:value="${precioInf}"
-                                           th:name="precioInf"
+                                           th:vaue="${precioInf}" 
+                                           th:name="precioInf" 
                                            required="true"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="fechaSup">[#{pruebas.precio.superior}]                                                                           
-                                    </label>
-                                    <input type="number"
+                                    <label for="fechaSup"> [[#{pruebas.precio.superior}]]</label>
+                                    <input type="number" 
                                            class="form-control" 
-                                           th:value="${precioInf}"
-                                           th:name="precioSup"
+                                           th:vaue="${precioSup}" 
+                                           th:name="precioSup" 
                                            required="true"/>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-check"></i>[[#{pruebas.ampliadas}]]
-                                
-                            </button>
-                        </div>
-                        
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-check"></i> [[#{pruebas.ampliadas}]]
+                                </button>
+                            </div>
+                        </div>  
                     </form>
                 </div>
-            
-            <div class="col-md-3">
+                <div class="col-md-3">
                     <form method="post"
                           th:action="@{/pruebas/query3}">
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="fechaInf">[#{pruebas.precio.inferior}]
-                                        
-                                    </label>
-                                    <input type="number"
+                                    <label for="fechaInf"> [[#{pruebas.precio.inferior}]]</label>
+                                    <input type="number" 
                                            class="form-control" 
-                                           th:value="${precioInf}"
-                                           th:name="precioInf"
+                                           th:vaue="${precioInf}" 
+                                           th:name="precioInf" 
                                            required="true"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="fechaSup">[#{pruebas.precio.superior}]                                                                           
-                                    </label>
-                                    <input type="number"
+                                    <label for="fechaSup"> [[#{pruebas.precio.superior}]]</label>
+                                    <input type="number" 
                                            class="form-control" 
-                                           th:value="${precioInf}"
-                                           th:name="precioSup"
+                                           th:vaue="${precioSup}" 
+                                           th:name="precioSup" 
                                            required="true"/>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-check"></i>[[#{pruebas.ampliadas}]]
-                                
-                            </button>
-                        </div>
-                        
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-check"></i> [[#{pruebas.ampliadas}]]
+                                </button>
+                            </div>
+                        </div>  
                     </form>
                 </div>
+            </div>
         </section>
-
     </body>
 </html>

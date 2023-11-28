@@ -10,25 +10,25 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 
-public class ProductoServiceImpl implements ProductoService{
-    
+public class ProductoServiceImpl implements ProductoService {
+
     @Autowired
     private ProductoDao productoDao;
 
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public List<Producto> getProductos(boolean activo) {
         var productos = productoDao.findAll();
-        
-        if(activo) {
+
+        if (activo) {
             productos.removeIf(e -> !e.isActivo());
         }
-        
+
         return productos;
     }
 
     @Override
-    @Transactional(readOnly=true) //Cuando no se va a modificar la base de datos
+    @Transactional(readOnly = true) //Cuando no se va a modificar la base de datos
     public Producto getProducto(Producto producto) {
         return productoDao.findById(producto.getIdProducto()).orElse(null); //orElse: si no lo encuentra devuelve null
     }
@@ -44,31 +44,22 @@ public class ProductoServiceImpl implements ProductoService{
     public void delete(Producto producto) {
         productoDao.delete(producto);
     }
-    
-    @Override
-    @Transactional(readOnly=true)
-    public List<Producto> consultaQuery(
-            double precioInf,
-            double precioSup) {
-    return productoDao.findByPrecioBetweenOrderByDescripcion(0, 0);
-    }
-    
-    @Override
-    @Transactional(readOnly=true)
-    public List<Producto> consultaJPQL(
-            double precioInf,
-            double precioSup) {
-    return productoDao.consultaJPQL(0, 0);
-    }
-    
-       @Override
-    @Transactional(readOnly=true)
-    public List<Producto> consultaSQL(
-            double precioInf,
-            double precioSup) {
-    return productoDao.consultaJPQL(0, 0);
-    }
-    
 
-    
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaQuery(double precioInf, double precioSup) {
+        return productoDao.findByPrecioBetweenOrderByDescripcion(precioInf, precioSup);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaJPQL(double precioInf, double precioSup) {
+        return productoDao.consultaJPQL(precioInf, precioSup);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaSQL(double precioInf, double precioSup) {
+        return productoDao.consultaSQL(precioInf, precioSup);
+    }
 }
