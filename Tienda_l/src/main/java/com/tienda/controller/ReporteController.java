@@ -58,7 +58,7 @@ public class ReporteController {
             throws IOException {
         Map<String,Object> parametros = new HashMap();
         parametros.put("fechaInicio", fechaInicio);
-        parametros.put("fechaFinal", fechaFin);
+        parametros.put("fechaFin", fechaFin);
         return reporteService.generaReporte("ventasTotales",parametros, tipo);        
     }
     

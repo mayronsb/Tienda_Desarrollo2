@@ -7,8 +7,6 @@ import com.tienda.domain.Usuario;
 import com.tienda.domain.Factura;
 import com.tienda.domain.Item;
 import com.tienda.domain.Venta;
-import com.tienda.services.UsuarioService;
-import com.tienda.services.ItemService;
 import java.util.List;
 import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import com.tienda.dao.ProductoDao;
+import com.tienda.services.ItemService;
+import com.tienda.services.UsuarioService;
 
 @Service
 public class ItemServiceImpl implements ItemService {
